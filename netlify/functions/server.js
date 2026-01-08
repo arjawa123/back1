@@ -22,7 +22,13 @@ router.post('/validate', async (req, res) => {
         Tugas: Validasi kalimat Bahasa Jepang.
         Kata wajib digunakan: ${words.join(", ")}.
         Kalimat User: "${userSentence}"
-        Berikan respon HANYA dalam format JSON mentah.
+
+        Berikan respon HANYA dalam format JSON mentah seperti ini:
+        {
+          "is_correct": true,
+          "correction": "kalimat yang benar",
+          "explanation": "penjelasan dalam Bahasa Indonesia"
+        }
     `;
 
     try {
