@@ -1,0 +1,158 @@
+/* IRODORI STREET: VANDAL EDITION 
+   Full Stylesheet 
+*/
+
+:root {
+  --neon-cyan: #00f3ff;
+  --neon-pink: #ec4899;
+  --neon-yellow: #eab308;
+  --neon-lime: #ccff00;
+  --zinc-900: #18181b;
+}
+
+/* --- Base & Background --- */
+body {
+  font-family: 'Permanent Marker', cursive;
+  background-color: var(--zinc-900);
+  background-image: radial-gradient(#333 10%, transparent 10%);
+  background-size: 20px 20px;
+  color: #fff;
+  min-height: 100vh;
+}
+
+/* --- Typography & Graffiti Effects --- */
+.title-graffiti {
+  font-family: 'Bungee', sans-serif;
+  text-shadow: 6px 6px 0px var(--neon-pink), 12px 12px 0px #000;
+  line-height: 1;
+}
+
+.glitch {
+  position: relative;
+  display: inline-block;
+}
+
+.glitch::before {
+  content: attr(data-text);
+  position: absolute;
+  top: 0; left: -2px;
+  text-shadow: 2px 0 var(--neon-cyan);
+  clip: rect(44px, 450px, 56px, 0);
+  animation: glitch-anim 5s infinite linear alternate-reverse;
+}
+
+/* --- Layout Components --- */
+.questionOuter {
+  background: #fff;
+  color: #000;
+  position: relative;
+  border: 8px solid #000;
+  box-shadow: 15px 15px 0px var(--neon-pink);
+  transition: transform 0.2s ease;
+}
+
+.questionOuter::after {
+  content: "TARGET";
+  position: absolute;
+  top: -25px;
+  right: -10px;
+  background: #000;
+  color: #fff;
+  padding: 5px 15px;
+  font-size: 0.9rem;
+  transform: rotate(5deg);
+  font-family: 'Bungee', sans-serif;
+}
+
+/* --- Irodori Street Chips --- */
+.street-chip {
+  background: #000;
+  color: var(--neon-lime);
+  padding: 12px 24px;
+  border: 4px solid #000;
+  text-align: center;
+  box-shadow: 6px 6px 0px var(--neon-cyan);
+  min-width: 100px;
+  font-family: 'Noto Sans JP', sans-serif;
+  transition: all 0.2s;
+}
+
+.street-chip:hover {
+  transform: translate(-3px, -3px);
+  box-shadow: 9px 9px 0px var(--neon-pink);
+}
+
+/* --- Buttons --- */
+.btn-main {
+  border: 4px solid #000;
+  cursor: pointer;
+  transition: all 0.1s steps(2);
+  text-transform: uppercase;
+  letter-spacing: 2px;
+}
+
+.btn-main:active {
+  transform: translate(4px, 4px);
+  box-shadow: none;
+  outline: none;
+}
+
+/* --- Result & Feedback --- */
+.correct {
+  display: block !important;
+  background-color: #22c55e !important; /* Hijau Vibrant */
+  color: #000 !important;
+  box-shadow: 10px 10px 0px #052e16 !important;
+  transform: rotate(-1deg) scale(1.02);
+  border: 6px solid #000;
+}
+
+.wrong {
+  display: block !important;
+  background-color: #ef4444 !important; /* Merah Spray */
+  color: #fff !important;
+  box-shadow: 10px 10px 0px #450a0a !important;
+  transform: rotate(1deg);
+  border: 6px dashed #fff;
+  animation: intense-shake 0.4s ease-in-out;
+}
+
+/* --- Animations --- */
+@keyframes intense-shake {
+  0%, 100% { transform: translateX(0) rotate(0); }
+  10% { transform: translateX(-10px) rotate(-2deg); }
+  20% { transform: translateX(10px) rotate(2deg); }
+  30% { transform: translateX(-10px) rotate(-1deg); }
+  40% { transform: translateX(10px) rotate(1deg); }
+}
+
+@keyframes glitch-anim {
+  0% { clip: rect(10px, 9999px, 20px, 0); }
+  20% { clip: rect(30px, 9999px, 40px, 0); }
+  40% { clip: rect(50px, 9999px, 60px, 0); }
+  60% { clip: rect(70px, 9999px, 80px, 0); }
+  80% { clip: rect(90px, 9999px, 100px, 0); }
+  100% { clip: rect(10px, 9999px, 20px, 0); }
+}
+
+/* --- Mobile Responsiveness --- */
+@media (max-width: 640px) {
+  .title-graffiti {
+    font-size: 3.5rem;
+  }
+  
+  .questionOuter {
+    box-shadow: 8px 8px 0px var(--neon-pink);
+    padding: 1.5rem !important;
+  }
+
+  .street-chip {
+    padding: 8px 16px;
+    font-size: 1.2rem;
+  }
+}
+
+/* Utility */
+.hidden {
+  display: none;
+}
