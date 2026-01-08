@@ -10,7 +10,7 @@ const router = express.Router(); // Tambahkan Router
 app.use(express.json());
 app.use(cors());
 
-[span_0](start_span)// Gunakan API Key dari Environment Variable[span_0](end_span)
+// Gunakan API Key dari Environment Variable[span_0](end_span)
 const genAI = new GoogleGenerativeAI(process.env.GEMINI_API_KEY);
 const model = genAI.getGenerativeModel({ model: "gemini-2.5-flash" });
 
